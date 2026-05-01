@@ -23,7 +23,6 @@ file_chosen_count=0
 file=""
 
 errors=()
-error_codes=()
 
 while getopts ":ips:f:l:e:n:k:c:" opt; do
     case $opt in
@@ -32,7 +31,6 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((insert_chosen_count++))
             if [[ insert_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -i (insert) option can only be used once.")
-                error_codes+=(20)
             fi
             ;;
         p)
@@ -40,7 +38,6 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((print_chosen_count++))
             if [[ print_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -p (print) option can only be used once.")
-                error_codes+=(21)
             fi
             ;;
         s)
@@ -48,12 +45,10 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((search_chosen_count++))
             if [[ search_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -s (search) option can only be used once.")
-                error_codes+=(22)
             fi
             # An if...else is used here so that when a user accidently makes the program store a flag in the $OPTARG, the flag won't be stored in search_term. Because of this, search_term will stay empty when this happens, and therefore, the no search results error (which happens later in the program) will work properly.
             if [[ "$OPTARG" == ^-[a-zA-Z]$ ]]; then
                 errors+=("Error: Missing search term. Please provide the search term after the -s option.")
-                error_codes+=(17)
                 OPTIND=$((OPTIND - 1))
             else
                 search_term=$OPTARG
@@ -63,11 +58,9 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((first_name_chosen_count++))
             if [[ first_name_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -f (first name) option can only be used once.")
-                error_codes+=(23)
             fi
             if [[ "$OPTARG" == ^-[a-zA-Z]$ ]]; then
                 errors+=("Error: Missing first name. Please provide the first name after the -f option.")
-                error_codes+=(1)
                 OPTIND=$((OPTIND - 1))
             fi
             first_name=$OPTARG
@@ -76,11 +69,9 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((last_name_chosen_count++))
             if [[ last_name_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -l (last name) option can only be used once.")
-                error_codes+=(24)
             fi
             if [[ "$OPTARG" == ^-[a-zA-Z]$ ]]; then
                 errors+=("Error: Missing last name. Please provide the last name after the -l option.")
-                error_codes+=(2)
                 OPTIND=$((OPTIND - 1))
             fi
             last_name=$OPTARG
@@ -89,15 +80,12 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((email_chosen_count++))
             if [[ email_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -e (email) option can only be used once.")
-                error_codes+=(25)
             fi
             if [[ "$OPTARG" == ^-[a-zA-Z]$ ]]; then
                 errors+=("Error: Missing email address. Please provide the email address after the -e option.")
-                error_codes+=(3)
                 OPTIND=$((OPTIND - 1))
             elif [[ ! "$OPTARG" =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
                 errors+=("Error: Invalid email address. Please provide a valid email address after -e option.")
-                error_codes+=(14)
             fi
             email=$OPTARG
             ;;
@@ -105,15 +93,12 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((phone_number_chosen_count++))
             if [[ phone_number_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -n (phone number) option can only be used once.")
-                error_codes+=(26)
             fi
             if [[ "$OPTARG" == ^-[a-zA-Z]$ ]]; then
                 errors+=("Error: Missing phone number. Please provide the phone number after the -n option.")
-                error_codes+=(4)
                 OPTIND=$((OPTIND - 1))
             elif [[ ! "$OPTARG" =~ ^[0-9]{3}-[0-9]{3}-[0-9]{4}$ ]]; then
                 errors+=("Error: Invalid phone number. Please provide a valid phone number after the -n option. Use the format 123-456-7890.")
-                error_codes+=(13)
             fi
             phone_number=$OPTARG
             ;;
@@ -121,16 +106,13 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((sort_chosen_count++))
             if [[ sort_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -k (sort) option can only be used once.")
-                error_codes+=(27)
             fi
             sort_option="included"
             if [[ "$OPTARG" == ^-[a-zA-Z]$ ]]; then
                 errors+=("Error: Missing field number to sort by. Please provide the field number after the -k option.")
-                error_codes+=(18)
                 OPTIND=$((OPTIND - 1))
             elif [[ ! "$OPTARG" =~ ^[0-9]+$ || $OPTARG -lt 1 || $OPTARG -gt 4 ]]; then
                 errors+=("Error: Invalid field number. Please provide a number from 1 to 4 after the -k option.")
-                error_codes+=(6)
             fi
             field_num=$OPTARG
             ;;
@@ -138,16 +120,13 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
             ((file_chosen_count++))
             if [[ file_chosen_count -gt 1 ]]; then
                 errors+=("Error: The -c (contacts file) option can only be used once.")
-                error_codes+=(28)
             fi
             file_option="included"
             if [[ "$OPTARG" == ^-[a-zA-Z]$ ]]; then
                 errors+=("Error: Missing contacts file. Please provide the name of the contacts file after the -c option.")
-                error_codes+=(5)
                 OPTIND=$((OPTIND - 1))
             elif [[ ! -f "$OPTARG" ]]; then
                 errors+=("Error: File does not exist. Please provide a valid file name after the -c option.")
-                error_codes+=(15)
             fi
             file=$OPTARG
             ;;  
@@ -157,106 +136,86 @@ while getopts ":ips:f:l:e:n:k:c:" opt; do
                     ((search_chosen_count++))
                     if [[ search_chosen_count -gt 1 ]]; then
                         errors+=("Error: The -s (search) option can only be used once.")
-                        error_codes+=(22)
                     fi
                     errors+=("Error: Missing search term. Please provide the search term after the -s option.")
-                    error_codes+=(17)
                     ;;
                 f)
                     ((first_name_chosen_count++))
                     if [[ first_name_chosen_count -gt 1 ]]; then
                         errors+=("Error: The -f (first name) option can only be used once.")
-                        error_codes+=(23)
                     fi
                     errors+=("Error: Missing first name. Please provide the first name after the -f option.")
-                    error_codes+=(1)
                     ;;
                 l)
                     ((last_name_chosen_count++))
                     if [[ last_name_chosen_count -gt 1 ]]; then
                         errors+=("Error: The -l (last name) option can only be used once.")
-                        error_codes+=(24)
                     fi
                     errors+=("Error: Missing last name. Please provide the last name after the -l option.")
-                    error_codes+=(2)
                     ;;
                 e)
                     ((email_chosen_count++))
                     if [[ email_chosen_count -gt 1 ]]; then
                         errors+=("Error: The -e (email) option can only be used once.")
-                        error_codes+=(25)
                     fi
                     errors+=("Error: Missing email address. Please provide the email address after the -e option.")
-                    error_codes+=(3)
                     ;;
                 n)
                     ((phone_number_chosen_count++))
                     if [[ phone_number_chosen_count -gt 1 ]]; then
                         errors+=("Error: The -n (phone number) option can only be used once.")
-                        error_codes+=(26)
                     fi 
                     errors+=("Error: Missing phone number. Please provide the phone number after the -n option.")
-                    error_codes+=(4)
                     ;;
                 k)
                     ((sort_chosen_count++))
                     if [[ sort_chosen_count -gt 1 ]]; then
                         errors+=("Error: The -k (sort) option can only be used once.")
-                        error_codes+=(27)
                     fi
                     sort_option="included"
                     errors+=("Error: Missing field number to sort by. Please provide the field number after the -k option.")
-                    error_codes+=(18)
                     ;;
                 c)
                     ((file_chosen_count++))
                     if [[ file_chosen_count -gt 1 ]]; then
                         errors+=("Error: The -c (contacts file) option can only be used once.")
-                        error_codes+=(28)
                     fi
                     file_option="included"
                     errors+=("Error: Missing contacts file. Please provide the name of the contacts file after the -c option.")
-                    error_codes+=(5)
                     ;;
             esac
             ;;
         /?)
             errors+=("Error: -$OPTARG is an invalid option.")  # Maybe, as a second sentence in the error message, add something like "Use -h for help." if you add a instruction manual.
-            error_codes+=(7)
             ;;
     esac
 done
 
 if [[ $file_option != "included" ]]; then 
     errors+=("Error: A contacts file is required. Please include the -c option followed by the name of a contacts file.")
-    error_codes+=(11)
 fi
 
 if (( insert_chosen_count + print_chosen_count + search_chosen_count != 1 )); then
     errors+=("Error: Exactly one option is required: -i (insert), -p (print), or -s (search).")
-    error_codes+=(12)
 fi
 
 if [[ $insert_option == "included" && (-z $first_name || -z $last_name || -z $email || -z $phone_number) ]]; then
     errors+=("Error: The -i (insert) option requires -f (first name), -l (last name), -e (email), and -n (phone number).")
-    error_codes+=(16)
 fi
 
 if [[ $file_chosen_count -eq 1 && ! -z $search_term && -f $file ]] && ! grep -q "$search_term" "$file"; then
     errors+=("Error: No search results found for the term you provided after the -s option.")
-    error_codes+=(8)
 fi
 
 if [[ $sort_option == "included" && $insert_option == "included" ]]; then
     errors+=("Error: The -k (sort) option is not allowed to be used with the -i (insert) option.")
-    error_codes+=(19)
 fi
 
 if [[ ${#errors[@]} -ne 0 ]]; then
     for error in "${errors[@]}"; do
         echo "$error"
     done
-    exit ${error_codes[0]}
+    exit 1
 fi
 
 if [[ $insert_option == "included" ]]; then
