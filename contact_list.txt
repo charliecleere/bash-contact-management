@@ -1,6 +1,7 @@
-Ben:Sharp:bsharp27@liberty.edu:434-907-7541
-Jeff:Serle:jjserle@liberty.edu:672-242-1567
-Tim:Lisi:tjlisi@liberty.edu:764-022-8921
-Ken:Ham:kham7@answersingenesis.org:516-421-2592
-Nathan:Skinner:nhskinner@liberty.edu:757-642-7110
-Charlie:Cleere:ccleere12@gmail.com:516-424-4274
+1:James:Sharp:jsharp27@church.org:436-957-7541:Church
+2:Jeff:Johnson:jjohnson@yahoo.com:672-298-1767:Friend
+3:Jim:Lisi:jimlisi@icloud.com:764-023-8961:Friend
+4:Ken:Pa:kpan7@association.org:516-421-2592:Work
+5:Norris:Skinner:nhskinner99@school.edu:757-225-1105:School
+6:Carle:Cleary:ccleary12@gmail.com:516-426-4884:Family
+7:Kevin:Smith:kjsmith32@gmail.com:612-421-2521:Friend
