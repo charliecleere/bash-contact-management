@@ -24,10 +24,11 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Loops
 * Variables
 * Command substitution
+* Command-line argument parsing with getops
 
 ### Command-Line Interface Design
 
-* Multi-flag argument parsing
+* Multi-flag argument parsing using getopts
 * Input validation
 * User-friendly error messages
 * Required and optional argument handling
