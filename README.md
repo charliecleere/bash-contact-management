@@ -53,7 +53,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Documentation
 * Input sanitization
 * Error handling
-* Modular code organization
+* Structured code organization
 * Git version control
 
 ## Technologies Used
@@ -62,7 +62,9 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * awk
 * grep
 * sort
+* cut
 * Linux command-line utilities
+* Regular expressions (regex)
 
 ## Project Structure
 
