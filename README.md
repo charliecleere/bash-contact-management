@@ -11,8 +11,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Search across all fields or a specific field
 * Edit existing contacts by search term or ID
 * Sort contact listings by selected fields
-* Validate email addresses before saving
-* Validate phone number formatting
+* Validate email addresses and phone numbers
 * Display record IDs for easier contact management
 * Store data in a structured, human-readable text format
 
