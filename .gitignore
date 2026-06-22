@@ -1,11 +1,12 @@
 # Contact data files
 contacts.txt
-contact_list.txt
 *.contacts
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# Editor settings
 .vscode/
 .idea/
 
