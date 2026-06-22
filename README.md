@@ -28,7 +28,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 
 ### Command-Line Interface Design
 
-* Multi-flag argument parsing using getopts
+* Multi-flag argument parsing using `getopts`
 * Input validation
 * User-friendly error messages
 * Required and optional argument handling
@@ -53,7 +53,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Documentation
 * Input sanitization
 * Error handling
-* Structured code organization
+* Structured script organization
 * Git version control
 
 ## Technologies Used
@@ -163,7 +163,7 @@ The repository includes `sample_contacts.txt`, which contains fictional contact 
 This project provided hands-on experience with:
 
 * Building a complete command-line application in Bash
-* Designing a flexible argument-parsing system that using getopts
+* Designing a flexible argument-parsing system using `getopts`
 * Performing field-based searches and updates
 * Validating user input before modifying data
 * Working with structured text files as a lightweight database
