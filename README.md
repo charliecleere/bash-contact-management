@@ -163,7 +163,7 @@ The repository includes `sample_contacts.txt`, which contains fictional contact 
 This project provided hands-on experience with:
 
 * Building a complete command-line application in Bash
-* Designing a flexible argument-parsing system
+* Designing a flexible argument-parsing system that using getopts
 * Performing field-based searches and updates
 * Validating user input before modifying data
 * Working with structured text files as a lightweight database
