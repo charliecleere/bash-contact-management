@@ -46,7 +46,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * `grep`
 * `sort`
 * Field-based searching
-* Pattern matching
+* Regular expressions (regex)
 
 ### Software Development Practices
 
@@ -166,6 +166,7 @@ This project provided hands-on experience with:
 * Validating user input before modifying data
 * Working with structured text files as a lightweight database
 * Creating maintainable and documented shell scripts
+* Using regular expressions (regex) to validate and search text data
 
 ## License
 
