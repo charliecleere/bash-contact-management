@@ -1,166 +1,161 @@
-# bash-contact-management
+# Bash Contact Management
 
-A robust command-line contact management system written in Bash. Easily add, search, edit, and display contacts stored in a text file with a clean, formatted output.
+A simple command-line contact manager written in Bash. It lets you add, view, search, sort, and edit contacts stored in a colon-delimited text file.
 
 ## Features
 
-- **Add Contacts**: Insert new contacts with first name, last name, email, phone number, and category
-- **Search**: Find contacts by any field or search across all fields
-- **Display**: View all contacts in a formatted table, optionally with ID numbers
-- **Edit**: Modify existing contacts by ID or search term
-- **Sort**: Display contacts sorted by any field
-- **Field-Specific Search**: Search within specific contact fields
-- **Input Validation**: Built-in validation for emails, phone numbers, and required fields
+* Add new contacts
+* View all contacts in a formatted table
+* Search contacts across all fields or within a specific field
+* Edit a contact by ID or by search term
+* Sort output by any field
+* Validate email addresses and phone numbers
 
 ## Requirements
 
-- Bash 4.0+
-- Unix/Linux environment (macOS compatible)
-- Write access to your contacts file
+* Bash 4.0 or later
+* A Unix-like environment (Linux, macOS, or WSL on Windows)
+* Write access to the contacts file
 
 ## Installation
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/charliecleere/bash-contact-management.git
-cd bash-contact-management
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
 
 2. Make the script executable:
+
 ```bash
 chmod +x contact_management.sh
 ```
 
-3. Create a contacts file (or use an existing one):
-```bash
-touch my_contacts.txt
-```
+3. Use a contacts file.
+
+If you are using the included sample file, keep it as a fake-data example only. For your own local data, create a separate file such as `contacts.txt`.
 
 ## Usage
 
-The script uses command-line flags to perform different operations. All commands require the `-c` flag to specify the contacts file.
+All commands require the `-c` option to specify the contacts file.
 
-### Basic Syntax
+### Basic syntax
+
 ```bash
 ./contact_management.sh -c <file> [operation] [options]
 ```
 
-### Operations
+### Add a contact
 
-#### Add a Contact
 ```bash
-./contact_management.sh -c my_contacts.txt -i -f John -l Doe -e john.doe@email.com -n 555-123-4567 -t Friends
+./contact_management.sh -c contacts.txt -i -f John -l Doe -e john.doe@email.com -n 555-123-4567 -t Friends
 ```
-- `-i`: Insert mode
-- `-f`: First name (required)
-- `-l`: Last name (required)
-- `-e`: Email (required, must be valid format)
-- `-n`: Phone number (required, format: XXX-XXX-XXXX)
-- `-t`: Category (required)
 
-#### Display All Contacts
+Options:
+
+* `-i` insert mode
+* `-f` first name
+* `-l` last name
+* `-e` email
+* `-n` phone number
+* `-t` category
+
+### Print all contacts
+
 ```bash
-./contact_management.sh -c my_contacts.txt -p
+./contact_management.sh -c contacts.txt -p
 ```
-- `-p`: Print mode (displays all contacts)
-- `-L`: (Optional) Include ID numbers in output
-- `-k <field>`: (Optional) Sort by field number (1-5)
 
-#### Search Contacts
+Optional print options:
+
+* `-L` show ID numbers
+* `-k <field>` sort by field number
+
+### Search contacts
+
 ```bash
-./contact_management.sh -c my_contacts.txt -s "john"
+./contact_management.sh -c contacts.txt -s john
 ```
-- `-s <term>`: Search for term across all fields
-- `-S <field>`: (Optional) Limit search to specific field (0=all, 1=first name, 2=last name, 3=email, 4=phone, 5=category)
-- `-L`: (Optional) Include ID numbers in output
 
-#### Edit a Contact
+Optional search options:
+
+* `-S <field>` search within one field only
+* `-L` show ID numbers
+
+### Edit a contact
+
+Edit by search term:
+
 ```bash
-# Edit by search term
-./contact_management.sh -c my_contacts.txt -E "John" -f "Jonathan"
-
-# Edit by ID
-./contact_management.sh -c my_contacts.txt -E -N 1 -f "Jonathan"
+./contact_management.sh -c contacts.txt -E John -f Jonathan
 ```
-- `-E <term>`: Edit mode with search term (or no argument with `-N`)
-- `-N <id>`: Edit by ID number instead of search term
-- `-f`, `-l`, `-e`, `-n`, `-t`: Choose which field to edit (must specify exactly one)
-- `-S <field>`: (Optional) Limit search to specific field
 
-### Field Numbers for Sorting/Searching
-- `0`: All fields
-- `1`: First name
-- `2`: Last name
-- `3`: Email
-- `4`: Phone number
-- `5`: Category
+Edit by ID:
 
-## Examples
-
-### Add multiple contacts
 ```bash
-./contact_management.sh -c contacts.txt -i -f Alice -l Smith -e alice@example.com -n 555-111-2222 -t Work
-./contact_management.sh -c contacts.txt -i -f Bob -l Johnson -e bob@example.com -n 555-333-4444 -t Friends
+./contact_management.sh -c contacts.txt -E -N 1 -f Jonathan
 ```
 
-### View all contacts sorted by last name
-```bash
-./contact_management.sh -c contacts.txt -p -k 2 -L
-```
+Edit options:
 
-### Search for a contact
-```bash
-./contact_management.sh -c contacts.txt -s "alice" -L
-```
+* `-E` edit mode
+* `-N <id>` edit by ID instead of search term
+* Use exactly one of `-f`, `-l`, `-e`, `-n`, or `-t` to choose the field to change
+* `-S <field>` limit the search to a specific field
 
-### Search only in email field
-```bash
-./contact_management.sh -c contacts.txt -s "example.com" -S 3
-```
+## Field numbers
 
-### Edit a contact by ID
-```bash
-./contact_management.sh -c contacts.txt -E -N 1 -e newemail@example.com
-```
+Use these field numbers with `-S` and `-k`:
 
-### Edit a contact by name search
-```bash
-./contact_management.sh -c contacts.txt -E "Alice" -t "Personal"
-```
+* `0` all fields
+* `1` first name
+* `2` last name
+* `3` email
+* `4` phone number
+* `5` category
 
-## Contact File Format
+## Contact file format
 
-Contacts are stored in a colon-delimited text format:
-```
+The contact file uses this format:
+
+```text
 ID:FirstName:LastName:Email:PhoneNumber:Category
 1:John:Doe:john.doe@example.com:555-123-4567:Work
 2:Jane:Smith:jane.smith@example.com:555-987-6543:Friends
 ```
 
-**Important**: Contact fields cannot contain colons.
+Important:
 
-## Error Handling
+* Fields cannot contain colons (`:`)
+* Each contact must follow the same six-part structure
 
-The script includes comprehensive error checking for:
-- Missing required arguments
-- Invalid email format
-- Invalid phone number format (must be XXX-XXX-XXXX)
-- Invalid field numbers
-- Duplicate operation flags
-- Missing contacts file
-- Multiple search results when expecting one
+## Examples
 
-## Tips & Tricks
+Print sorted by last name with IDs:
 
-- **Default sort**: Without `-k`, contacts are sorted by first name (field 1)
-- **Show IDs**: Use `-L` flag with `-p` or `-s` to see contact ID numbers (useful for editing)
-- **Case-sensitive search**: Searches are case-sensitive; use lowercase for broader matches
-- **Backup your contacts**: Keep a backup copy of your contacts file before bulk edits
+```bash
+./contact_management.sh -c contacts.txt -p -k 2 -L
+```
+
+Search only in email addresses:
+
+```bash
+./contact_management.sh -c contacts.txt -s example.com -S 3
+```
+
+Edit a category by ID:
+
+```bash
+./contact_management.sh -c contacts.txt -E -N 1 -t Work
+```
+
+## Notes
+
+* Search is case-sensitive
+* The script expects one main operation at a time: `-i`, `-p`, `-s`, or `-E`
+* Keep a backup of your contacts file before making large changes
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contributing
-
-Feel free to submit issues or pull requests to improve this contact management tool.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
