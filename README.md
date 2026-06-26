@@ -168,6 +168,7 @@ This project provided hands-on experience with:
 * Validating user input before modifying data
 * Working with structured text files as a lightweight database
 * Creating maintainable and documented shell scripts
+* Implementing robust error handling
 * Using regular expressions (regex) to validate and search text data
 
 ## License
