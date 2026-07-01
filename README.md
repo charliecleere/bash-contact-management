@@ -7,7 +7,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 ## Key Features
 
 * Add new contacts
-* View all contacts in a formatted table
+* Display contacts in a clean, column-aligned table generated with `awk`
 * Search across all fields or a specific field
 * Edit existing contacts by search term or ID
 * Sort contact listings by selected fields
@@ -42,10 +42,9 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 
 ### Text Processing
 
-* `awk`
-* `grep`
-* `sort`
-* Field-based searching
+* `awk` for formatted table output and field-based record processing
+* `grep` for pattern matching and search validation
+* `sort` for ordering contact records
 * Regular expressions (regex)
 
 ### Software Development Practices
