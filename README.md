@@ -1,8 +1,8 @@
 # Bash Contact Management
 
-A command-line contact management system built in Bash that allows users to add, search, view, sort, and edit contacts stored in a text file.
+A command-line contact management system written in Bash that allows users to add, search, view, sort, and edit contacts stored in a text file.
 
-This project was developed to strengthen core Linux and shell scripting skills, with a focus on command-line argument processing, input validation, file manipulation, and text processing.
+This project was developed to strengthen core Linux and shell scripting skills, with a focus on command-line argument processing, error-handling, input validation, file manipulation, and text processing using standard Linux utilities.
 
 ## Key Features
 
@@ -24,7 +24,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Loops
 * Variables
 * Command substitution
-* Command-line argument parsing with getops
+* Command-line argument parsing with getopts
 
 ### Command-Line Interface Design
 
@@ -33,12 +33,12 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * User-friendly error messages
 * Required and optional argument handling
 
-### File Management
+### File Manipulation
 
 * Reading and writing text files
 * Updating existing records
 * Structured data storage
-* Safe file modification techniques
+* Atomic file updates using temporary files
 
 ### Text Processing
 
@@ -63,7 +63,6 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * grep
 * sort
 * cut
-* Linux command-line utilities
 * Regular expressions (regex)
 
 ## Project Structure
@@ -75,7 +74,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 ├── LICENSE
 ├── README.md
 ├── contact_management.sh
-└── sample_contacts.txt
+└── sample_sample_contacts.txt
 ```
 
 ## Installation
@@ -100,37 +99,37 @@ The script requires a contacts file to be specified with the `-c` option.
 ### Add a Contact
 
 ```bash
-./contact_management.sh -c contacts.txt -i -f John -l Doe -e john@email.com -n 555-123-4567 -t Friends
+./contact_management.sh -c sample_contacts.txt -i -f John -l Doe -e john@email.com -n 555-123-4567 -t Friends
 ```
 
 ### View All Contacts
 
 ```bash
-./contact_management.sh -c contacts.txt -p
+./contact_management.sh -c sample_contacts.txt -p
 ```
 
 ### Search Contacts
 
 ```bash
-./contact_management.sh -c contacts.txt -s John
+./contact_management.sh -c sample_contacts.txt -s John
 ```
 
 ### Search a Specific Field
 
 ```bash
-./contact_management.sh -c contacts.txt -s example.com -S 3
+./contact_management.sh -c sample_contacts.txt -s example.com -S 3
 ```
 
 ### Edit a Contact
 
 ```bash
-./contact_management.sh -c contacts.txt -E John -f Jonathan
+./contact_management.sh -c sample_contacts.txt -E John -f Jonathan
 ```
 
 ### Edit by ID
 
 ```bash
-./contact_management.sh -c contacts.txt -E -N 1 -f Jonathan
+./contact_management.sh -c sample_contacts.txt -E -N 1 -f Jonathan
 ```
 
 ## Supported Fields
@@ -156,7 +155,7 @@ ID:FirstName:LastName:Email:PhoneNumber:Category
 
 ## Sample Data
 
-The repository includes `sample_contacts.txt`, which contains fictional contact information for testing and demonstration purposes.
+The repository includes `sample_sample_contacts.txt`, which contains fictional contact information for testing and demonstration purposes.
 
 ## What I Learned
 
