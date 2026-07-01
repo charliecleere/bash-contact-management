@@ -74,7 +74,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 ├── LICENSE
 ├── README.md
 ├── contact_management.sh
-└── sample_sample_contacts.txt
+└── sample_contacts.txt
 ```
 
 ## Installation
@@ -155,7 +155,7 @@ ID:FirstName:LastName:Email:PhoneNumber:Category
 
 ## Sample Data
 
-The repository includes `sample_sample_contacts.txt`, which contains fictional contact information for testing and demonstration purposes.
+The repository includes `sample_contacts.txt`, which contains fictional contact information for testing and demonstration purposes.
 
 ## What I Learned
 
