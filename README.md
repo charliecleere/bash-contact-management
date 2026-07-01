@@ -24,7 +24,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Loops
 * Variables
 * Command substitution
-* Command-line argument parsing with getopts
+* Command-line argument parsing with `getopts`
 
 ### Command-Line Interface Design
 
