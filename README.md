@@ -2,7 +2,7 @@
 
 A command-line contact management system written in Bash that allows users to add, search, view, sort, and edit contacts stored in a text file.
 
-This project was developed to strengthen core Linux and shell scripting skills, with a focus on command-line argument processing, error-handling, input validation, file manipulation, and text processing using standard Linux utilities.
+This project was developed to strengthen core Linux and shell scripting skills, with a focus on command-line argument processing, error handling, input validation, file manipulation, and text processing using standard Linux utilities.
 
 ## Key Features
 
@@ -11,7 +11,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Search across all fields or a specific field
 * Edit existing contacts by search term or ID
 * Sort contact listings by selected fields
-* Validate email addresses and phone numbers
+* Comprehensive command-line argument and input validation
 * Display record IDs for easier contact management
 * Store data in a structured, human-readable text format
 
@@ -82,8 +82,8 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+git clone https://github.com/charliecleere/bash-contact-management.git
+cd bash-contact-management
 ```
 
 Make the script executable:
@@ -155,7 +155,7 @@ ID:FirstName:LastName:Email:PhoneNumber:Category
 
 ## Sample Data
 
-The repository includes `sample_contacts.txt`, which contains fictional contact information for testing and demonstration purposes.
+The repository includes `sample_contacts.txt`, which contains fictional contact records for testing and demonstration purposes.
 
 ## What I Learned
 
