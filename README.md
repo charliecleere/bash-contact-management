@@ -11,7 +11,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Search across all fields or a specific field
 * Edit existing contacts by search term or ID
 * Sort contact listings by selected fields
-* Comprehensive command-line argument and input validation
+* Thorough input validation and error handling
 * Display record IDs for easier contact management
 * Store data in a structured, human-readable text format
 
@@ -166,7 +166,7 @@ This project provided hands-on experience with:
 * Validating user input before modifying data
 * Working with structured text files as a lightweight database
 * Creating maintainable and documented shell scripts
-* Implementing robust error handling
+* Implementing comprehensive error handling
 * Using regular expressions (regex) to validate and search text data
 
 ## License
