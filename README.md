@@ -2,7 +2,7 @@
 
 A command-line contact management system written in Bash that allows users to add, search, view, sort, and edit contacts stored in a text file.
 
-This project was developed to strengthen core Linux and shell scripting skills, with a focus on command-line argument processing, error handling, input validation, file manipulation, and text processing using standard Linux utilities.
+This project was developed to strengthen core Linux and shell scripting skills, with a focus on command-line argument processing, input validation, error handling, file manipulation, and text processing using standard Linux utilities.
 
 ## Key Features
 
