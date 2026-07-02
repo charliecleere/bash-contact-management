@@ -45,6 +45,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * `awk` for formatted table output and field-based record processing
 * `grep` for pattern matching and search validation
 * `sort` for ordering contact records
+* `cut` for field extraction
 * Regular expressions (regex)
 
 ### Software Development Practices
@@ -54,15 +55,6 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 * Error handling
 * Structured script organization
 * Git version control
-
-## Technologies Used
-
-* Bash
-* awk
-* grep
-* sort
-* cut
-* Regular expressions (regex)
 
 ## Project Structure
 
