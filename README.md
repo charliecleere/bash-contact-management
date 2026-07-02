@@ -59,7 +59,7 @@ This project was developed to strengthen core Linux and shell scripting skills, 
 ## Project Structure
 
 ```text
-.
+bash-contact-management/
 ├── .gitattributes
 ├── .gitignore
 ├── LICENSE
